@@ -1,0 +1,32 @@
+name: Validate Agent Skill
+
+on:
+  push:
+    paths:
+      - ".agents/skills/linkedin-aeo-optimizer/**"
+      - ".github/workflows/validate-skill.yml"
+      - ".gitignore"
+      - "AGENTS.md"
+      - "README.md"
+      - "posts/**"
+  pull_request:
+    paths:
+      - ".agents/skills/linkedin-aeo-optimizer/**"
+      - ".github/workflows/validate-skill.yml"
+      - ".gitignore"
+      - "AGENTS.md"
+      - "README.md"
+      - "posts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Run skill validator
+        run: python3 .agents/skills/linkedin-aeo-optimizer/scripts/validate_skill.py

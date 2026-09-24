@@ -1,0 +1,12 @@
+# Local positioning, drafts of experiment observations, and other private data
+/private/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Common local editor and operating-system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
